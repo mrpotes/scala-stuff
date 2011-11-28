@@ -1,5 +1,9 @@
 package potes.tmorris.exercises
 
+//
+// http://blog.tmorris.net/revised-scala-exercises/
+//
+
 sealed trait List[+A] {
   override def toString = {
     def toScalaList(t: List[A]): scala.List[A] = t match {

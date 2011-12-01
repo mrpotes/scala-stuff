@@ -119,7 +119,9 @@ object Exercises {
   // Performance: 1.5 marks
   // Elegance: 1 mark
   // Total: 7
-  def filter[A](as: List[A], f: A => Boolean): List[A] = error("todo")
+  def filter[A](as: List[A], f: A => Boolean): List[A] = {
+    List.foldRight(as, Empty, (a: A, b : List[A]) => if (f(a)) Cons(a, b) else b)
+  }
 
   // Exercise 6
   // Relative Difficulty: 5
@@ -127,7 +129,10 @@ object Exercises {
   // Performance: 1.5 marks
   // Elegance: 1 mark
   // Total: 7
-  def append[A](x: List[A], y: List[A]): List[A] = error("todo")
+  def append[A](x: List[A], y: List[A]): List[A] = x match {
+      case Empty => y
+      case Cons(i, j) => Cons(i, append(j, y))
+  }
 
   // Exercise 7
   // Relative Difficulty: 5

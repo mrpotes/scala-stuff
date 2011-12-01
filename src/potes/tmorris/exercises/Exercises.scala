@@ -82,12 +82,9 @@ object Exercises {
   // Performance: 0.5 mark
   // Elegance: 0.5 marks
   // Total: 3
-  def add(x: Natural, y: Natural): Natural = {
-    def addToY(n: Natural): Natural = n match {
+  def add(x: Natural, y: Natural): Natural = x match {
       case Zero => y
-      case Succ(i) => Succ(addToY(i))
-    }
-    addToY(x)
+      case Succ(i) => Succ(add(i, y))
   }
 
   // Exercise 2

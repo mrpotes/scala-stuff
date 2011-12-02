@@ -129,10 +129,7 @@ object Exercises {
   // Performance: 1.5 marks
   // Elegance: 1 mark
   // Total: 7
-  def append[A](x: List[A], y: List[A]): List[A] = x match {
-      case Empty => y
-      case Cons(i, j) => Cons(i, append(j, y))
-  }
+  def append[A](x: List[A], y: List[A]): List[A] = List.foldRight(x, y, (c: A, d: List[A]) => Cons(c, d))
 
   // Exercise 7
   // Relative Difficulty: 5
@@ -140,7 +137,9 @@ object Exercises {
   // Performance: 1.5 marks
   // Elegance: 1 mark
   // Total: 7
-  def flatten[A](as: List[List[A]]): List[A] = error("todo")
+  def flatten[A](as: List[List[A]]): List[A] = {
+    List.foldRight(as, Empty, (a : List[A], b : List[A]) => append(a, b))
+  }
 
   // Exercise 8
   // Relative Difficulty: 7

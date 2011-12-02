@@ -93,7 +93,7 @@ object Exercises {
   // Performance: 1 mark
   // Elegance: 0.5 marks
   // Total: 4
-  def sum(is: List[Int]): Int = List.foldLeft(is, 0, (b: Int, a: Int) => a + b)
+  def sum(is: List[Int]): Int = List.foldRight(is, 0, (a: Int, b: Int) => a + b)
 
   // Exercise 3
   // Relative Difficulty: 2
@@ -101,7 +101,7 @@ object Exercises {
   // Performance: 1 mark
   // Elegance: 0.5 marks
   // Total: 4
-  def length[A](as: List[A]): Int = List.foldLeft(as, 0, (b: Int, a: A) => b + 1)
+  def length[A](as: List[A]): Int = List.foldRight(as, 0, (a: A, b: Int) => b + 1)
 
   // Exercise 4
   // Relative Difficulty: 5
@@ -129,7 +129,7 @@ object Exercises {
   // Performance: 1.5 marks
   // Elegance: 1 mark
   // Total: 7
-  def append[A](x: List[A], y: List[A]): List[A] = List.foldRight(x, y, (c: A, d: List[A]) => Cons(c, d))
+  def append[A](x: List[A], y: List[A]): List[A] = List.foldRight(x, y, (a: A, b: List[A]) => Cons(a, b))
 
   // Exercise 7
   // Relative Difficulty: 5

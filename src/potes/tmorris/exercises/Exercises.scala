@@ -147,7 +147,7 @@ object Exercises {
   // Performance: 1.5 marks
   // Elegance: 1.5 mark
   // Total: 8
-  def flatMap[A, B](as: List[A], f: A => List[B]): List[B] = error("todo")
+  def flatMap[A, B](as: List[A], f: A => List[B]): List[B] = flatten(map(as, f))
 
   // Exercise 9
   // Relative Difficulty: 8
@@ -155,7 +155,7 @@ object Exercises {
   // Performance: 3.0 marks
   // Elegance: 2.5 marks
   // Total: 9
-  def maximum(is: List[Int]): Int = error("todo")
+  def maximum(is: List[Int]): Int = List.reduceLeft(is, (a :Int, b:Int) => if (a > b) a else b)
 
   // Exercise 10
   // Relative Difficulty: 10
@@ -163,5 +163,5 @@ object Exercises {
   // Performance: 2.5 marks
   // Elegance: 2.5 marks
   // Total: 10
-  def reverse[A](as: List[A]): List[A] = error("todo")
+  def reverse[A](as: List[A]): List[A] = List.foldLeft(as, Empty, (b: List[A], a: A) => Cons(a, b))
 }
